@@ -12,108 +12,98 @@ const RowMargin = styled(Row) `
 
 class Explore extends Component {
 
+  state = {
+    photo: [],
+    userId: []
+  }
+
+
   getPhotos = async () => {
     try {
+      const allPhotos = await fetch(`http://localhost:8000/photos/`, {
+        method:"GET",
+        headers: {
+          "Content-Type": 'application/json'
+        }
+      });
 
+      const parsedResponse = await allPhotos.json();
+      console.log(parsedResponse, ' this is parsed response')
+      this.setState({
+        photo: parsedResponse
+      })
+      console.log(this.state.photo[0].url, '<-----photos url')
     } catch (err) {
       console.log(err)
       return err
     }
   }
 
+  getUser = async()=>{
+        
+ try {
+    const userResponse = await fetch ('http://localhost:8000/users/',{
+        method:"GET",
+        headers:{
+            "Content-Type":'application/json'
+        }
+    });
+    const parsedResponse = await userResponse.json();
+    console.log(parsedResponse, ' this is parsed response')
+    this.setState({
+        userId: parsedResponse
+    })
+    console.log(this.state.userId,'this is the state')
+  } catch(err){
+    console.log(err)
+    return err
+  }
+}
+  getUsername=(arr,id)=>{
+    for(let i = 0;i<arr.length;i++){
+
+      console.log(arr[i])
+      console.log(id)
+      if(arr[i].id==id){
+
+        return arr[i].username
+      }
+    }
+  }
+
+  componentDidMount(){
+    this.getPhotos();
+    this.getUser();
+  }
+
     render(){
+
+      const photo = this.state.photo;
+      const userId = this.state.userId;
+      console.log(userId)
         return (
             <Container>
-                <h1>Just some stuff</h1>
-            <CardDeck>
-              <Row>
-              <Card>
-                <Card.Img variant="top" src="https://picsum.photos/id/851/300/300" />
+              <CardDeck>
+              <Row></Row>
+              {
+               photo.map((photo, i) => (
+              <Card key={i}>
+                <Card.Img variant="top" src={photo.url} />
                   <Card.Body>
-                  <Card.Title>Card title</Card.Title>
+                  <Card.Title>{photo.title}</Card.Title>
                   <Card.Text>
-                  This is a wider card with supporting text below as a natural lead-in to
-                  additional content. This content is a little bit longer.
+                  {photo.description}
                   </Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                  <small className="text-muted">Last updated 3 mins ago</small>
+                    <img src="https://picsum.photos/50/50"></img><br />
+                    <small className="text-muted">{photo.created_by} {this.getUsername(userId,photo.created_by)}</small>
                 </Card.Footer>
               </Card>
-              <Card>
-              <Card.Img variant="top" src="https://picsum.photos/id/852/300/300" />
-              <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-              This card has supporting text below as a natural lead-in to additional
-              content.{' '}
-              </Card.Text>
-              </Card.Body>
-              <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-              </Card.Footer>
-              </Card>
-              <Card>
-              <Card.Img variant="top" src="https://picsum.photos/id/853/300/300" />
-              <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in to
-              additional content. This card has even longer content than the first to
-              show that equal height action.
-              </Card.Text>
-              </Card.Body>
-              <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-              </Card.Footer>
-              </Card>
-              </Row>
-              <RowMargin>
-              <Card>
-              <Card.Img variant="top" src="https://picsum.photos/id/823/300/300" />
-              <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in to
-              additional content. This card has even longer content than the first to
-              show that equal height action.
-              </Card.Text>
-              </Card.Body>
-              <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-              </Card.Footer>
-              </Card>
-              <Card>
-              <Card.Img variant="top" src="https://picsum.photos/id/813/300/300" />
-              <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in to
-              additional content. This card has even longer content than the first to
-              show that equal height action.
-              </Card.Text>
-              </Card.Body>
-              <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-              </Card.Footer>
-              </Card>
-              <Card>
-              <Card.Img variant="top" src="https://picsum.photos/id/803/300/300" />
-              <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in to
-              additional content. This card has even longer content than the first to
-              show that equal height action.
-              </Card.Text>
-              </Card.Body>
-              <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-              </Card.Footer>
-              </Card>
-              </RowMargin>
+               ))
+              }
             </CardDeck>
-          </Container>
+            </Container>
         )
     }
 }
