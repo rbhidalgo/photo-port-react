@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 // import ReactDOM from 'react-dom'   
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch ,withRouter} from 'react-router-dom'
 import './App.css';
 import Login from './components/Login/Login'
 import Explore from './components/Explore/Explore'
-import Register from './components/Register/Register'
+import Register from './components/Register/register'
 import Navbar from './components/Navbar/navbar'
 import Popup from './components/Modal/modal'
 import Profile from './components/Profile/Profile'
@@ -33,7 +33,13 @@ class App extends Component{
 
   doLogout = async () => {
     console.log('logout')
-    await fetch('http://localhost:8000/users/logout')
+    await fetch('http://localhost:8000/users/',{ 
+      method:"GET",
+      headers:{
+          "Content-Type": 'application'
+    }
+    })
+    this.props.history.push('/')
     this.setState({
         currentUser: null,
         logged: false
@@ -66,4 +72,4 @@ class App extends Component{
 }
 
 
-export default App;
+export default withRouter(App);

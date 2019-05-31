@@ -80,7 +80,7 @@ class Home extends Component {
 
                 </Carousel.Item>
             </Carousel>
-            < AddPhoto />
+
         </Container>
     )};
 }

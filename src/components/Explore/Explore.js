@@ -97,7 +97,7 @@ class Explore extends Component {
                   </Card.Body>
                   <Card.Footer>
                     <img src="https://picsum.photos/50/50"></img><br />
-                    <small className="text-muted">{photo.created_by} {this.getUsername(userId,photo.created_by)}</small>
+                    <small className="text-muted"> Photo by: {this.getUsername(userId,photo.created_by)}</small>
                 </Card.Footer>
               </Card>
                ))

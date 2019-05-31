@@ -11,6 +11,7 @@ class Register extends Component {
         verify_password: ''   
     }
 
+    
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
