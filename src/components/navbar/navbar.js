@@ -62,7 +62,7 @@ class NavBar extends Component{
                 <Nav >
             {isLogged
                 ? (
-                    <StyledDiv >
+                    <React.Fragment >
                         <Nav.Link>
                             <Link>
                                 <Nav.Item className="justify-content-end" onClick={()=>{this.props.history.push(`/profile/${userID}`)}}  >
@@ -78,10 +78,10 @@ class NavBar extends Component{
                                 </Nav.Item>
                             </Link>
                         </Nav.Link>
-                    </StyledDiv>
+                    </React.Fragment>
                 )
                 : (
-                    <StyledDiv>
+                    <React.Fragment>
                         <Nav.Link>
                             <Link>
                                 <Nav.Item onClick={()=>{handleShow(2)}} >
@@ -96,7 +96,7 @@ class NavBar extends Component{
                                 </Nav.Item>
                             </Link>
                         </Nav.Link>
-                    </StyledDiv>
+                    </React.Fragment>
                 )
                 }
             </Nav>

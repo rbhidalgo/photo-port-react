@@ -72,7 +72,10 @@ class Profile extends Component {
         const {handleShow} = this.props 
         return(
             <div>
-                <h1> Hey, {this.state.userObj.username}</h1>
+                {this.props.logged
+                ?<h1> Hey, {this.state.userObj.username}</h1>
+                :<h1>{this.state.userObj.username}</h1>}
+                
                 {this.props.logged
                 ?   
                 <div>

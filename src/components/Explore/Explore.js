@@ -100,7 +100,7 @@ class Explore extends Component {
                   </Card.Body>
                   <Card.Footer>
                     <Image src="https://picsum.photos/50/50" roundedCircle /><br />
-                    <small className="text-muted"><Link to={`/profile/${photo.created_by}`}> Photo by:{this.getUsername(userId,photo.created_by)}</Link></small>
+                    <small className="text-muted"><Link to={`/profile/${photo.created_by}`}> Photo by: {this.getUsername(userId,photo.created_by)}</Link></small>
                 </Card.Footer>
               </Card>
                ))

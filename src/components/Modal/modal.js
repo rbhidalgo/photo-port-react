@@ -13,11 +13,8 @@ class Popup extends Component{
         const {show,handleClose,modalID,checkedLogged,userID} = this.props
         return (
           <>
-            
-    
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
               </Modal.Header>
                     <Modal.Body>
                         {modalID === 1
