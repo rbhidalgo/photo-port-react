@@ -14,7 +14,7 @@ const BackgroundRow = styled(Row) `
 
 `
 const CarouselItem = styled(Carousel.Item) `
-    margin: 20px;
+    margin-top: 40px;
 
 `
 
@@ -26,8 +26,6 @@ class Home extends Component {
         <Container>
             <Carousel>
                 <CarouselItem>
-                <BackgroundRow>
-            </BackgroundRow>
                     <img
                     className="d-block w-100"
                     src="https://picsum.photos/id/851/600/400"
@@ -39,7 +37,7 @@ class Home extends Component {
             <Button variant="outline-info" size="lg">Sign Up</Button>
                 </Carousel.Caption>
                 </CarouselItem>
-                <Carousel.Item>
+                <CarouselItem>
                     <img
                     className="d-block w-100"
                     src="https://picsum.photos/id/1025/600/400"
@@ -49,12 +47,12 @@ class Home extends Component {
                                         <h6>Global network for photographers</h6>
                     <h1>Share Photos</h1><Button variant="outline-info" size="lg">Sign Up</Button>
                 </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
+                </CarouselItem>
+                <CarouselItem>
                     <img
                     className="d-block w-100"
                     src="https://picsum.photos/id/883/600/400"
-                    alt="First slide"
+                    alt="Second slide"
                     />
 
                         <Carousel.Caption>
@@ -63,8 +61,8 @@ class Home extends Component {
                     <Button variant="outline-info" size="lg">Sign Up</Button>
                 </Carousel.Caption>
 
-                </Carousel.Item>
-                <Carousel.Item>
+                </CarouselItem>
+                <CarouselItem>
                     <img
                     className="d-block w-100"
                     src="https://picsum.photos/id/872/600/400"
@@ -78,7 +76,7 @@ class Home extends Component {
                 </Carousel.Caption>
 
 
-                </Carousel.Item>
+                </CarouselItem>
             </Carousel>
 
         </Container>

@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import {Container, Card, CardDeck, Row} from 'react-bootstrap'
+import {Container, Card, CardDeck, Row, Image} from 'react-bootstrap'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 
-const RowMargin = styled(Row) `
+
+const CardDeckMargin = styled(CardDeck) `
     margin-top: 20px;
     margin-bottom: 20px;
 
+    
 `
 
 class Explore extends Component {
@@ -83,7 +86,7 @@ class Explore extends Component {
       console.log(userId)
         return (
             <Container>
-              <CardDeck>
+              <CardDeckMargin>
               <Row></Row>
               {
                photo.map((photo, i) => (
@@ -96,13 +99,13 @@ class Explore extends Component {
                   </Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                    <img src="https://picsum.photos/50/50"></img><br />
-                    <small className="text-muted"> Photo by: {this.getUsername(userId,photo.created_by)}</small>
+                    <Image src="https://picsum.photos/50/50" roundedCircle /><br />
+                    <small className="text-muted"><Link to={`/profile/${photo.created_by}`}> Photo by:{this.getUsername(userId,photo.created_by)}</Link></small>
                 </Card.Footer>
               </Card>
                ))
               }
-            </CardDeck>
+            </CardDeckMargin>
             </Container>
         )
     }
