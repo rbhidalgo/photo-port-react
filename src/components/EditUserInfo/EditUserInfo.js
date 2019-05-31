@@ -81,10 +81,10 @@ class EditUserInfo extends Component {
                     </label>
                     <br/>
                     <label>
-                        <input type="text" name="password" defaultValue={this.state.userObj.password} placeholder={this.state.userObj.password} onChange={this.doHandleInput} placeholder="password" />
+                        <input type="password" name="password" defaultValue={this.state.userObj.password} placeholder={this.state.userObj.password} onChange={this.doHandleInput} placeholder="password" />
                     </label>
                     <br/>
-                    <Button type="submit" onSubmit={this.doHandleSubmit}>Edit Profile</Button>
+                    <Button type="submit" onSubmit={this.doHandleSubmit}>Update Profile</Button>
                 </form>
             </div>
         )

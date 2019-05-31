@@ -4,17 +4,44 @@ import Nav from 'react-bootstrap/Nav'
 // import { LinkContainer } from "react-router-bootstrap";
 import Navbar from 'react-bootstrap/Navbar'
 import './navbar.css'
-import 'bootstrap/dist/css/bootstrap.css'
 import { withRouter } from 'react-router-dom'
+import styled from 'styled-components'
 
+const StyledDiv = styled.div `
+    display: flex;
+    flex-align: row;
+    align-content: space-between;
+    text-decoration: none;
+    height: 100px;
+    background-color: #55ffff;
+    margin: 0 auto;
+
+    .nav-link {
+        display: flex;
+        padding: 0.5rem 1rem;
+        align-items: center;
+        align-content: center;
+
+    a {
+        color: #000;
+        text-decoration: none;
+        font-size: 36px;
+    }
+
+    a:hover {
+        color: #fff;
+
+
+    }
+`
 
 class NavBar extends Component{
     
     render(){
         const {handleShow, isLogged, userID} = this.props 
         return (
-        <div>
-            <Navbar bg="dark" variant="dark" expand="lg" className="navBar">
+        <StyledDiv>
+            <StyledDiv>
                 <Nav>
                     <Nav.Link>
                         <Link to='/'>
@@ -35,10 +62,10 @@ class NavBar extends Component{
                 <Nav >
             {isLogged
                 ? (
-                    <div>
+                    <React.Fragment >
                         <Nav.Link>
                             <Link>
-                                <Nav.Item onClick={()=>{this.props.history.push(`/profile/${userID}`)}}  >
+                                <Nav.Item className="justify-content-end" onClick={()=>{this.props.history.push(`/profile/${userID}`)}}  >
                                     Profile
                                 </Nav.Item>
                             </Link>
@@ -51,10 +78,10 @@ class NavBar extends Component{
                                 </Nav.Item>
                             </Link>
                         </Nav.Link>
-                    </div>
+                    </React.Fragment>
                 )
                 : (
-                    <div>
+                    <React.Fragment>
                         <Nav.Link>
                             <Link>
                                 <Nav.Item onClick={()=>{handleShow(2)}} >
@@ -69,12 +96,12 @@ class NavBar extends Component{
                                 </Nav.Item>
                             </Link>
                         </Nav.Link>
-                    </div>
+                    </React.Fragment>
                 )
                 }
             </Nav>
-        </Navbar>
-        </div>
+        </StyledDiv>
+        </StyledDiv>
     )}
     
 }

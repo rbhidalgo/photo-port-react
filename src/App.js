@@ -5,7 +5,7 @@ import './App.css';
 import Login from './components/Login/Login'
 import Explore from './components/Explore/Explore'
 import Register from './components/Register/register'
-import Navbar from './components/navbar/navbar'
+import Navbar from './components/Navbar/navbar'
 import Popup from './components/Modal/modal'
 import Profile from './components/Profile/Profile'
 import * as routes from './constants/routes'

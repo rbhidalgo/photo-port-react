@@ -55,6 +55,8 @@ class Register extends Component {
     }
     render(){
         return (
+            <div>
+            <h3>Register</h3>
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Username:
@@ -66,14 +68,15 @@ class Register extends Component {
                 </label>
                 <label>
                     Password:
-                    <input type='text' name='password' placeholder='password' onChange={this.handleChange} value={this.state.password}/><br/>
+                    <input type='password' name='password' placeholder='password' onChange={this.handleChange} value={this.state.password}/><br/>
                 </label>
                 <label>
                     Verify password:
-                    <input type='text' name='verify_password' placeholder='confirm password' onChange={this.handleChange} value={this.state.verify_password}/><br/>
+                    <input type='password' name='verify_password' placeholder='confirm password' onChange={this.handleChange} value={this.state.verify_password}/><br/>
                 </label>
                 <Button type='submit'>Register</Button>
             </form>
+            </div>
         )
     }
 }
