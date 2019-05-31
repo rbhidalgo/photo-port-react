@@ -30,6 +30,14 @@ class App extends Component{
     })
   }
 
+  deletePic = async(id) =>{
+    await fetch(`http://localhost:8000/photos/${id}`,{
+      method:"DELETE",
+      headers:{
+        "Content-Type": 'application'
+    }
+    })
+  }
 
   doLogout = async () => {
     console.log('logout')
@@ -41,7 +49,6 @@ class App extends Component{
     })
     this.props.history.push('/')
     this.setState({
-        currentUser: null,
         logged: false
     })
   }
@@ -62,11 +69,11 @@ class App extends Component{
             <Route exact path={routes.REGISTER} render={()  =><Register /> } />
             <Route exact path={routes.LOGIN} render={()  =><Login /> } />
             <Route exact path={routes.EXPLORE} render={()  =><Explore />} />
-            <Route exact path={`${routes.PROFILE}/:id`} render={()  =><Profile userID={this.state.userID} handleShow = {this.handleShow} logged={this.state.logged}/>} />
-            <Route exact path={routes.EDITUSERINFO} render={()  =><EditUserInfo />} />
+            <Route exact path={`${routes.PROFILE}/:id`} render={()  =><Profile delete={this.deletePic}userID={this.state.userID} handleShow = {this.handleShow} logged={this.state.logged}/>} />
+
             <Route exact path={routes.LOGOUT} render={()  =><Logout logStat={this.state.logged}/>} />
           </Switch>
-        < Popup  handleClose= {this.handleClose} getUser={this.getUser} checkedLogged={this.checkedLogged} modalID = {this.state.modalID} show = {this.state.show} userID={this.state.userID} />
+        <Popup  handleClose= {this.handleClose} getUser={this.getUser} checkedLogged={this.checkedLogged} modalID = {this.state.modalID} show = {this.state.show} userID={this.state.userID} />
       </React.Fragment>
     )};
 }

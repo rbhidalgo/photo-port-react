@@ -26,13 +26,14 @@ class Profile extends Component {
             }
         });
         const parsedResponse = await userResponse.json();
-        console.log(parsedResponse, ' this is parsed response')
+
         this.setState({
             userObj: parsedResponse
         })
        
     }
     getPhotos = async()=>{
+        console.log('get photos being called')
         const photoRespnse = await fetch('http://localhost:8000/photos/',{
             method:"GET",
             headers:{
@@ -40,20 +41,24 @@ class Profile extends Component {
             }
         });
         const parsedResponse = await photoRespnse.json();
-        console.log(parsedResponse,' this should be the photos')
+
         this.setState({
             userPhotos: parsedResponse
         })
+        console.log(this.state.userPhotos)
     }
     checkPhotos =(arr,id)=>{
         let newArr = [];
         for(let i = 0;i<arr.length;i++){
-            console.log(arr[i].created_by)
             if(arr[i].created_by ==id){
                  newArr.push(arr[i])
             }
         }
         return newArr;
+    }
+    sendDelete = async(id)=>{
+        await this.props.delete(id)
+        await this.getPhotos()
     }
 
     componentDidMount(){
@@ -62,9 +67,8 @@ class Profile extends Component {
     }
 
     render(){
-        console.log(this.state.userPhotos)
         const photos = this.checkPhotos(this.state.userPhotos,this.state.userID)
-        console.log(photos)
+
         const {handleShow} = this.props 
         return(
             <div>
@@ -96,7 +100,7 @@ class Profile extends Component {
                     </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        <Button onClick={this.props.delete}>Delete</Button>
+                        <Button onClick={()=>this.sendDelete(photo.id)}>Delete</Button>
                     </Card.Footer>
 
                 </Card>
