@@ -45,7 +45,7 @@ class Login extends Component {
                 // this.props.history.push(`/profile/${parsedResponse.id}`);
 
                 this.props.onHide()
-                return this.props.history.push(`/profile/${parsedResponse.user.id}`)
+                return this.props.history.push(`/`)
             } else {
                 this.setState({
                     authMessage: parsedResponse

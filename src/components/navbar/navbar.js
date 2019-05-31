@@ -4,13 +4,14 @@ import Nav from 'react-bootstrap/Nav'
 // import { LinkContainer } from "react-router-bootstrap";
 import Navbar from 'react-bootstrap/Navbar'
 import './navbar.css'
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css'
+import { withRouter } from 'react-router-dom'
 
 
 class NavBar extends Component{
     
     render(){
-        const {handleShow, isLogged} = this.props 
+        const {handleShow, isLogged, userID} = this.props 
         return (
         <div>
             <Navbar bg="dark" variant="dark" expand="lg" className="navBar">
@@ -37,8 +38,8 @@ class NavBar extends Component{
                     <div>
                         <Nav.Link>
                             <Link>
-                                <Nav.Item onClick={()=>{handleShow(3)}} >
-                                    Edit Profile
+                                <Nav.Item onClick={()=>{this.props.history.push(`/profile/${userID}`)}}  >
+                                    Profile
                                 </Nav.Item>
                             </Link>
 
@@ -77,4 +78,4 @@ class NavBar extends Component{
     )}
     
 }
-export default NavBar
+export default withRouter(NavBar)

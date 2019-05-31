@@ -18,7 +18,7 @@ class Popup extends Component{
                 <Modal.Title>Modal heading</Modal.Title>
               </Modal.Header>
                     <Modal.Body>
-                        {modalID===1
+                        {modalID === 1
                         ?<Login logged={checkedLogged} onHide={handleClose} />:
                         (modalID === 2 
                         ? <Register onHide={handleClose}/>:

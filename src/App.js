@@ -31,8 +31,9 @@ class App extends Component{
   }
 
 
-  doLogout = () => {
+  doLogout = async () => {
     console.log('logout')
+    await fetch('http://localhost:8000/users/logout')
     this.setState({
         currentUser: null,
         logged: false
@@ -49,7 +50,7 @@ class App extends Component{
   render(){
     return (
       <React.Fragment>
-        <Navbar handleShow = {this.handleShow} doLogout={this.doLogout} isLogged={this.state.logged}/>
+        <Navbar handleShow = {this.handleShow} doLogout={this.doLogout} isLogged={this.state.logged} getUser={this.getUser} userID={this.state.userID}/>
           <Switch>
             <Route exact path={routes.HOME} render={() =><Home creator={this.state.userID}/> } />
             <Route exact path={routes.REGISTER} render={()  =><Register /> } />
@@ -59,7 +60,7 @@ class App extends Component{
             <Route exact path={routes.EDITUSERINFO} render={()  =><EditUserInfo />} />
             <Route exact path={routes.LOGOUT} render={()  =><Logout logStat={this.state.logged}/>} />
           </Switch>
-        < Popup  handleClose= {this.handleClose} checkedLogged={this.checkedLogged} modalID = {this.state.modalID} show = {this.state.show} userID={this.state.userID} />
+        < Popup  handleClose= {this.handleClose} getUser={this.getUser} checkedLogged={this.checkedLogged} modalID = {this.state.modalID} show = {this.state.show} userID={this.state.userID} />
       </React.Fragment>
     )};
 }
