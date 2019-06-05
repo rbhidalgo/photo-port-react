@@ -24,7 +24,7 @@ class EditUserInfo extends Component {
 
         e.preventDefault()
         console.log("updating it")
-        const updateResponse = await fetch (`http://localhost:8000/users/${this.state.userID}`,{
+        const updateResponse = await fetch (`${process.env.REACT_APP_BACKEND_URL}/${this.state.userID}`,{
             method:"PUT",
             body: JSON.stringify(this.state),
             headers:{
@@ -48,7 +48,7 @@ class EditUserInfo extends Component {
         })
         
         console.log(this.state)
-        const userResponse = await fetch (`http://localhost:8000/users/${this.state.userID}`,{
+        const userResponse = await fetch (`${process.env.REACT_APP_BACKEND_URL}/${this.state.userID}`,{
             method:"GET",
             headers:{
                 "Content-Type":'application/json'

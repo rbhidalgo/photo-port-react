@@ -28,13 +28,13 @@ class Login extends Component {
         }
 
         try {
-            const loginResponse = await fetch('http://localhost:8000/users/login', {
+            const loginResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}users/login`, {
                 method: 'POST',
                 // credentials: 'include',
                 body: JSON.stringify(loggedUser),
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'http://localhost:8000'
+                    'Access-Control-Allow-Origin': `${process.env.REACT_APP_BACKEND_URL}`
                 }
             })
 

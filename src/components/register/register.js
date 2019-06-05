@@ -28,12 +28,12 @@ class Register extends Component {
           };
         
         try {
-            const loginResponse = await fetch('http://localhost:8000/users/', {
+            const loginResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}users/`, {
                 method: 'POST',
                 body: JSON.stringify(newUser),
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'http://localhost:8000'
+                    'Access-Control-Allow-Origin': `${process.env.REACT_APP_BACKEND_URL}`
                 }
             })
 

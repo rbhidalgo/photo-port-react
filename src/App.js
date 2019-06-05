@@ -31,7 +31,7 @@ class App extends Component{
   }
 
   deletePic = async(id) =>{
-    await fetch(`http://localhost:8000/photos/${id}`,{
+    await fetch(`${process.env.REACT_APP_BACKEND_URL}photos/${id}`,{
       method:"DELETE",
       headers:{
         "Content-Type": 'application'
@@ -41,7 +41,7 @@ class App extends Component{
 
   doLogout = async () => {
     console.log('logout')
-    await fetch('http://localhost:8000/users/',{ 
+    await fetch(`${process.env.REACT_APP_BACKEND_URL}users/`,{ 
       method:"GET",
       headers:{
           "Content-Type": 'application'
