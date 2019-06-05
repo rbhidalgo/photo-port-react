@@ -19,7 +19,7 @@ class Profile extends Component {
             userID:this.props.match.params.id
         })
         
-        const userResponse = await fetch (`http://localhost:8000/users/${this.props.match.params.id}`,{
+        const userResponse = await fetch (`${process.env.REACT_APP_BACKEND_URL}users/${this.props.match.params.id}`,{
             method:"GET",
             headers:{
                 "Content-Type":'application/json'
@@ -34,7 +34,7 @@ class Profile extends Component {
     }
     getPhotos = async()=>{
         console.log('get photos being called')
-        const photoRespnse = await fetch('http://localhost:8000/photos/',{
+        const photoRespnse = await fetch(`${process.env.REACT_APP_BACKEND_URL}photos/`,{
             method:"GET",
             headers:{
                 "Content-Type": 'application'

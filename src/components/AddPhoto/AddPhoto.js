@@ -30,12 +30,12 @@ class AddPhoto extends Component {
         };
         
         try {
-            const photoResponse = await fetch('http://localhost:8000/photos/', {
+            const photoResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}photos/`, {
                 method: 'POST',
                 body: JSON.stringify(newPhoto),
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'http://localhost:8000'
+                    'Access-Control-Allow-Origin': `${process.env.REACT_APP_BACKEND_URL}`
                 }
             })
             const parsedResponse = await photoResponse.json();

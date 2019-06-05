@@ -23,7 +23,7 @@ class Explore extends Component {
 
   getPhotos = async () => {
     try {
-      const allPhotos = await fetch(`http://localhost:8000/photos/`, {
+      const allPhotos = await fetch(`${process.env.REACT_APP_BACKEND_URL}photos/`, {
         method:"GET",
         headers: {
           "Content-Type": 'application/json'
@@ -45,7 +45,7 @@ class Explore extends Component {
   getUser = async()=>{
         
  try {
-    const userResponse = await fetch ('http://localhost:8000/users/',{
+    const userResponse = await fetch (`${process.env.REACT_APP_BACKEND_URL}users/`,{
         method:"GET",
         headers:{
             "Content-Type":'application/json'
