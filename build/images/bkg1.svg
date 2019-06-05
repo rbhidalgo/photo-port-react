@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2560" height="1600" viewBox="0 0 2560 1600">
+  <defs>
+    <linearGradient id="a" data-name="Degradado sin nombre 18" x1="616.351" y1="1928.175" x2="1964.031" y2="372.899" gradientTransform="matrix(-0.749, 0.663, -0.663, -0.749, 3010.272, 688.146)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.019" stop-color="#674cff" stop-opacity="0"/>
+      <stop offset="0.198" stop-color="#674cff"/>
+      <stop offset="1" stop-color="#ff7ff8"/>
+    </linearGradient>
+  </defs>
+  <title>bkg1</title>
+  <path d="M0,0V1052.614C212.4,907.093,386.94,704.253,615.545,584.239,885.415,442.562,1206.3,430.2,1508.056,473.124s593.657,137.21,892.183,198.729A871.6,871.6,0,0,0,2560,688.793V0Z" fill="url(#a)"/>
+</svg>
