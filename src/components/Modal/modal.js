@@ -1,7 +1,7 @@
 import React, { Component , forwardRef, useRef, useImperativeHandle } from 'react'
 import { Modal } from 'react-bootstrap'
 import Login from '../Login/Login'
-import Register from '../Register/register'
+import Register from '../Register/Register'
 import AddPhoto from '../AddPhoto/AddPhoto';
 import EditUserInfo from '../EditUserInfo/EditUserInfo'
 

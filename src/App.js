@@ -4,7 +4,7 @@ import { Route, Switch ,withRouter} from 'react-router-dom'
 import './App.css';
 import Login from './components/Login/Login'
 import Explore from './components/Explore/Explore'
-import Register from './components/Register/register'
+import Register from './components/Register/Register'
 import Navbar from './components/Navbar/Navbar'
 import Popup from './components/Modal/Modal'
 import Profile from './components/Profile/Profile'
