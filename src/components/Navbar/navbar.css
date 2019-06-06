@@ -1,0 +1,10 @@
+.navBar{
+    display: flex;
+    align-content: space-between;
+
+}
+
+.rightNav{
+    float: right;
+}
+
