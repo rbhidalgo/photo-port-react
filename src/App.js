@@ -13,9 +13,6 @@ import Home from './components/Home/Home'
 import EditUserInfo from './components/EditUserInfo/EditUserInfo'
 import Logout from './components/Login/Login'
 
-
-hello
-
 class App extends Component{
   state = {
     show: false,
