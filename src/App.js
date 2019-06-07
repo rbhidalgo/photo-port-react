@@ -63,7 +63,7 @@ class App extends Component{
         <Navbar handleShow = {this.handleShow} doLogout={this.doLogout} isLogged={this.state.logged} getUser={this.getUser} userID={this.state.userID}/>
           <Switch>
             <Route exact path={routes.HOME} render={() =><Home creator={this.state.userID}/> } />
-            <Route exact path={routes.REGISTER} render={()  =><Register /> } />
+            <Route exact path={routes.REGISTER} render={()  =><Register checkedLogged={this.checkedLogged}/> } />
             <Route exact path={routes.LOGIN} render={()  =><Login /> } />
             <Route exact path={routes.EXPLORE} render={()  =><Explore />} />
             <Route exact path={`${routes.PROFILE}/:id`} render={()  =><Profile delete={this.deletePic}userID={this.state.userID} handleShow = {this.handleShow} logged={this.state.logged}/>} />

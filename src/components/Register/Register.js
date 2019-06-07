@@ -40,7 +40,7 @@ class Register extends Component {
             const parsedResponse = await loginResponse.json();
             console.log(parsedResponse)
             if(parsedResponse.email){
-                this.props.loginUser(parsedResponse);
+                this.props.checkedLogged(parsedResponse.id);
                 this.props.history.push(`/profile`);
                 this.props.onHide()
 
