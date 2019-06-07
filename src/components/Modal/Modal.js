@@ -10,7 +10,7 @@ import EditUserInfo from '../EditUserInfo/EditUserInfo'
 
 class Popup extends Component{
     render() {
-        const {show,handleClose,modalID,checkedLogged,userID} = this.props
+        const {show,handleClose,modalID,checkedLogged,userID, checkedLogged} = this.props
         return (
           <>
             <Modal show={show} onHide={handleClose}>
@@ -20,7 +20,7 @@ class Popup extends Component{
                         {modalID === 1
                         ?<Login logged={checkedLogged} onHide={handleClose} />:
                         (modalID === 2 
-                        ? <Register onHide={handleClose}/>:
+                        ? <Register onHide={handleClose} checkedLogged={this.checkedLogged}/>:
                         (modalID === 3
                         ? <AddPhoto userID={userID}/>:<EditUserInfo userID={userID} onHide={handleClose}/> )    )
                         }

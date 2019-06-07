@@ -63,14 +63,14 @@ class App extends Component{
         <Navbar handleShow = {this.handleShow} doLogout={this.doLogout} isLogged={this.state.logged} getUser={this.getUser} userID={this.state.userID}/>
           <Switch>
             <Route exact path={routes.HOME} render={() =><Home creator={this.state.userID}/> } />
-            <Route exact path={routes.REGISTER} render={()  =><Register checkedLogged={this.checkedLogged}/> } />
+            <Route exact path={routes.REGISTER} render={()  =><Register /> } />
             <Route exact path={routes.LOGIN} render={()  =><Login /> } />
             <Route exact path={routes.EXPLORE} render={()  =><Explore />} />
             <Route exact path={`${routes.PROFILE}/:id`} render={()  =><Profile delete={this.deletePic}userID={this.state.userID} handleShow = {this.handleShow} logged={this.state.logged}/>} />
 
             <Route exact path={routes.LOGOUT} render={()  =><Logout logStat={this.state.logged}/>} />
           </Switch>
-        <Popup  handleClose= {this.handleClose} getUser={this.getUser} checkedLogged={this.checkedLogged} modalID = {this.state.modalID} show = {this.state.show} userID={this.state.userID} />
+        <Popup  checkedLogged={this.checkedLogged} handleClose= {this.handleClose} getUser={this.getUser} checkedLogged={this.checkedLogged} modalID = {this.state.modalID} show = {this.state.show} userID={this.state.userID} />
       </React.Fragment>
     )};
 }
